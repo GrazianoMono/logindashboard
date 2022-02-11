@@ -1,8 +1,14 @@
 .App {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.error {
+	font-size: 3rem;
+	color: red;
+	font-weight: bolder;
 }

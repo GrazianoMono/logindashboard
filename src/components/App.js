@@ -9,8 +9,7 @@ function App() {
 			case 'success':
 				return { logged: true };
 			case 'incorrect':
-				console.log('Suca e io non ti loggo perché hai sbagliato');
-				return { logged: false };
+				return { logged: false, showError: true };
 			default:
 				return state;
 		}
@@ -45,6 +44,9 @@ function App() {
 					password={password}
 					email={email}
 				/>
+			)}
+			{!logged.logged && logged.showError && (
+				<p className="error">Credenziali errate, riprova!</p>
 			)}
 			{logged.logged && <Dashboard />}
 		</div>
