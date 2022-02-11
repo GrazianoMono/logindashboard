@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../scss/Login.scss';
 
@@ -46,5 +46,13 @@ function Login({
 		</form>
 	);
 }
+
+Login.propTypes = {
+	handleSubmit: PropTypes.func,
+	handleEmailChange: PropTypes.func,
+	handlePasswordChange: PropTypes.func,
+	email: PropTypes.string,
+	password: PropTypes.string,
+};
 
 export default Login;
