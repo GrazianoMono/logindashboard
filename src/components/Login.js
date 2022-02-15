@@ -1,16 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../scss/Login.scss';
+import useAuth from '../hooks/useAuth';
+import { useState } from 'react';
 
-function Login({
-	handleSubmit,
-	handleEmailChange,
-	email,
-	handlePasswordChange,
-	password,
-}) {
+function Login() {
+	const { handleSubmit } = useAuth();
+
+	const [password, setPassword] = useState('');
+	const handlePasswordChange = (e) => {
+		setPassword(e.target.value);
+	};
+
+	const [email, setEmail] = useState('');
+	const handleEmailChange = (e) => {
+		setEmail(e.target.value);
+	};
+
 	return (
-		<form className="login-form" onSubmit={handleSubmit}>
+		<form
+			className="login-form"
+			onSubmit={(e) => {
+				handleSubmit({ email: email, password: password });
+				e.preventDefault();
+			}}>
 			<div className="form-field">
 				<label className="form-field__label" htmlFor="email">
 					E-mail
@@ -46,13 +58,5 @@ function Login({
 		</form>
 	);
 }
-
-Login.propTypes = {
-	handleSubmit: PropTypes.func,
-	handleEmailChange: PropTypes.func,
-	handlePasswordChange: PropTypes.func,
-	email: PropTypes.string,
-	password: PropTypes.string,
-};
 
 export default Login;
