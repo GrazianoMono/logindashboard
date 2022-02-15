@@ -24,7 +24,6 @@ const FormField = ({ type, name, label, value, onChange, required }) => {
         value={value}
         required={required}
         onChange={(e) => {
-          e.preventDefault()
           onChange(name, e.target.value)
         }}
       />
